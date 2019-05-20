@@ -1,1 +1,19 @@
 language: c++
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "OptkH49zE17TfxZ3DAY/RsjbSYxvzzFDFM+DcYS5dDl4c8ksXoAqrSLxlMGB0IORgd7Ge0zGov1NLGyhja7iTKvyuJa20cFF7Rq3tsIC15XRC/2vMJwdAa7OQswTKjCUE40sJ/F1aS4bERAPttEZ1icVeZBz8HsFVeZYLPcd12qOXgQkbNhCnBVoslZf9wwr0HopyZ4sJ0Sfy9LVBLs+UpwOGGtepZKbCuSGi8QMCI8xQhDpAfFoFE+2+3Nyoqdos2E0fGTeWr8us6SFOkXsjtFoP8VKINS23IBFHMGmjYnt0fMW8L0Nz9GGE87f0stBOuiF38+uqZs2LRJiM493dJ1m3SSOp03xBOTAh7Px7ExoVTlv4KvFZ/5FYiCIlAjBkNnuVZOGOwdI5mWNU3rOExe4U1ytNrZKqX6OWRbJ+oFTxTo8lDhv+9BEsoykvuhPYFEhshq1XZag8DN2HrkU+PeGgEMGENENM1XWLayDv7T5jf9ociop5gBZFk4ReOA79g1Z7/6seKWtFZtJFtMx2y2l0l07qEflWl/SmhYzhr76OAls0d1Z/Ikyhb9mDq/dVrXPqDHbl7EN/Fm1DWIMycDGZJDVG3N1+7vEsn7BD/cMEHuhDqf23ThB11MBXSOPY7qHKkQGRalLuftwHWSSM+GjMRaSflJbVScDss57qKE="
+
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "Reaves1234/WinSCP"
+      description: "<Your project description here>"
+    notification_email: bryantdreaves@gmail.com
+    build_command_prepend: "<Your build preprocessing command here>"
+    build_command: "<Your build command here>"
+    branch_pattern: coverity_scan

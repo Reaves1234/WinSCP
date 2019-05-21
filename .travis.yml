@@ -1,9 +1,8 @@
-language: c++
 env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
-   - secure: "OptkH49zE17TfxZ3DAY/RsjbSYxvzzFDFM+DcYS5dDl4c8ksXoAqrSLxlMGB0IORgd7Ge0zGov1NLGyhja7iTKvyuJa20cFF7Rq3tsIC15XRC/2vMJwdAa7OQswTKjCUE40sJ/F1aS4bERAPttEZ1icVeZBz8HsFVeZYLPcd12qOXgQkbNhCnBVoslZf9wwr0HopyZ4sJ0Sfy9LVBLs+UpwOGGtepZKbCuSGi8QMCI8xQhDpAfFoFE+2+3Nyoqdos2E0fGTeWr8us6SFOkXsjtFoP8VKINS23IBFHMGmjYnt0fMW8L0Nz9GGE87f0stBOuiF38+uqZs2LRJiM493dJ1m3SSOp03xBOTAh7Px7ExoVTlv4KvFZ/5FYiCIlAjBkNnuVZOGOwdI5mWNU3rOExe4U1ytNrZKqX6OWRbJ+oFTxTo8lDhv+9BEsoykvuhPYFEhshq1XZag8DN2HrkU+PeGgEMGENENM1XWLayDv7T5jf9ociop5gBZFk4ReOA79g1Z7/6seKWtFZtJFtMx2y2l0l07qEflWl/SmhYzhr76OAls0d1Z/Ikyhb9mDq/dVrXPqDHbl7EN/Fm1DWIMycDGZJDVG3N1+7vEsn7BD/cMEHuhDqf23ThB11MBXSOPY7qHKkQGRalLuftwHWSSM+GjMRaSflJbVScDss57qKE="
+   - secure: "fKWhlBJ4puwj6toOuQe/TaCF4kks6XzIYMl92QzT8Xq9DF+2idJCnmWnol9k2cnPQ+34Y/WCbw+mijj7AeerTRXBbClsoPhneeLJTgcycrXYPzeqfKQArGRAH33F8ItkO9JQWrs1an1Zrk1ORGxb8rM9CGv9R+hyBUqQBNru4faJk/hLZe7oh+CvZU4Th6HxFT3s3LHBcoIdyAuhZSanV0zzQ3mgPZdI3OVtvadpPxc1csQrVFmYkVhAAE3JH1o+gEtPXRNxIyUIZaxuFbVMZ2Qsm89diAXtfywn+RQKLNwtlQnXOj+gG0F1U3KdaoTwRx6KCrY3nQPy34ZgN+riLb2g+yt6f5MsgAVM8mpL+lyFXvlkwSXvYzn0TR2KO8SMqxSpalU4LUGTMZA5MpnDOVfWQIZ79kuA3DvrMselCBaRP5+JC1R2/6tyyalzVzTO0JOE92ht6eJQY7SeJGT94cYffwUfJQ5ENtPs6OzbM87r/AOdSmMRgcfDsPZDiTwtEfW9sBTGEzZdxq7inJzjEDB9exLQBzX4S/P1TxhC22i75/thqIJ2sV40TSGrn8LdMqw0CGgijnLWR51apsE0wg4FtQsFzOb0cb0Ia8cYk/onMenpFAwEYC/ZE1NHeEXYz5rc7da/Zj1iz4Q+Cmj+KVI2j47NQjOIamso+XcWP9g="
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
@@ -14,5 +13,6 @@ addons:
       name: "Reaves1234/WinSCP"
       description: "<Your project description here>"
     notification_email: bryantdreaves@gmail.com
-    build_command_prepend:
+    build_command_prepend: "<Your build preprocessing command here>"
+    build_command: "<Your build command here>"
     branch_pattern: coverity_scan

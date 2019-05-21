@@ -15,7 +15,8 @@ addons:
       description: "<Your project description here>"
     notification_email: bryantdreaves@gmail.com
     build_command_prepend: "<Your build preprocessing command here>"
-    build_command: @echo off
+    build_command: 
+    @echo off
 rem See 'readme' file
 if "%PROCESSOR_ARCHITECTURE%"=="x86" set PROGRAMFILES32=%ProgramFiles%
 if "%PROCESSOR_ARCHITECTURE%"=="AMD64" set PROGRAMFILES32=%ProgramFiles(x86)%

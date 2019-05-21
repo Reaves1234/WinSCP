@@ -19,4 +19,4 @@ addons:
     notification_email: bryantdreaves@gmail.com
     build_command_prepend: "./configure"
     build_command: "<Your build command here>"
-    branch_pattern: coverity_scan
+    branch_pattern: master

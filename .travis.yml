@@ -17,6 +17,6 @@ addons:
       name: "Reaves1234/WinSCP"
       description: "<Your project description here>"
     notification_email: bryantdreaves@gmail.com
-    build_command_prepend: "<Your build preprocessing command here>"
+    build_command_prepend: "./configure"
     build_command: "<Your build command here>"
     branch_pattern: coverity_scan
